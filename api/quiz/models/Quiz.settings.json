@@ -1,0 +1,31 @@
+{
+  "identity": "quiz",
+  "connection": "lilmongoserver",
+  "displayedAttribute": "",
+  "schema": false,
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "subject": {
+      "type": "string"
+    },
+    "options": {
+      "type": "array"
+    },
+    "createdBy": {
+      "model": "user"
+    },
+    "updatedBy": {
+      "model": "user"
+    },
+    "contributors": {
+      "collection": "user",
+      "via": "quizzes"
+    }
+  },
+  "autoCreatedAt": true,
+  "autoUpdatedAt": true,
+  "migrate": "alter"
+}

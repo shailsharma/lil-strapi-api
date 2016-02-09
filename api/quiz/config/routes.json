@@ -1,0 +1,64 @@
+{
+  "routes": {
+    "GET /quiz": {
+      "controller": "Quiz",
+      "action": "find",
+      "policies": [
+        "isAuthorized"
+      ]
+    },
+    "GET /quiz/:id": {
+      "controller": "Quiz",
+      "action": "findOne",
+      "policies": [
+        "isAuthorized"
+      ]
+    },
+    "GET /quiz/subject/:param": {
+      "controller": "Quiz",
+      "action": "findBySubject",
+      "policies": [
+        "isAuthorized"
+      ]
+    },
+    "POST /quiz": {
+      "controller": "Quiz",
+      "action": "create",
+      "policies": [
+        "isAuthorized",
+        "addDataCreate"
+      ]
+    },
+    "PUT /quiz/:id": {
+      "controller": "Quiz",
+      "action": "update",
+      "policies": [
+        "isAuthorized",
+        "addDataUpdate"
+      ]
+    },
+    "DELETE /quiz/:id": {
+      "controller": "Quiz",
+      "action": "destroy",
+      "policies": [
+        "isAuthorized"
+      ]
+    },
+    "POST /quiz/:parentId/:relation": {
+      "controller": "Quiz",
+      "action": "add",
+      "policies": [
+        "isAuthorized",
+        "addDataCreate"
+      ]
+    },
+    "DELETE /quiz/:parentId/:relation/:id": {
+      "controller": "Quiz",
+      "action": "remove",
+      "policies": [
+        "isAuthorized",
+        "addDataUpdate"
+      ]
+    }
+  }
+}
