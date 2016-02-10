@@ -50,7 +50,6 @@ module.exports = {
 
   findOne: function * () {
     this.model = model;
-    console.log(this.model);
     try {
       let entry = yield strapi.hooks.blueprints.findOne(this);
       yield this.render('quiz', {
