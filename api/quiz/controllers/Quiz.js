@@ -18,9 +18,7 @@ module.exports = {
     this.model = model;
     try {
       let entries = yield strapi.hooks.blueprints.find(this);
-      yield this.render('quiz', {
-        quiz: entries
-      });
+      this.body = entries;
     } catch (err) {
       this.body = err;
     }
@@ -52,6 +50,7 @@ module.exports = {
     this.model = model;
     try {
       let entry = yield strapi.hooks.blueprints.findOne(this);
+      console.log(entry);
       yield this.render('quiz', {
         quiz: entry
       });
