@@ -15,8 +15,9 @@ describe('Quiz Model Test', function(){
         chai.request('http://localhost:1337')
             .get('/quiztest')
             .end(function(err, res){
+                console.log(res);
                 expect(res.status).to.equal(200);
-                 expect(res.body).to.be.a('array');
+                expect(res.body).to.be.a('array');
                 done();
             });
     });
