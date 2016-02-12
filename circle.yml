@@ -7,7 +7,7 @@ machine:
 test:
     pre:
         - docker build -t lil-strapi-api .
-        - docker run -d --name lil-api -p 3000:3000 lil-strapi-api
+        - docker run -d --name lil-api -p 1337:1337 lil-strapi-api
  
 deployment:
     staging:
