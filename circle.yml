@@ -4,8 +4,8 @@ machine:
   node:
     version: 5.2.0
 
- test:
-      pre:
+test:
+    pre:
         - docker build -t lil-strapi-api .
         - docker run -d --name lil-api -p 3000:3000 lil-strapi-api
  
