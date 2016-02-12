@@ -1,15 +1,15 @@
 'use strict';
 
-const model = 'quiz';
+const model = 'quiztest';
 
 /**
- * A set of functions called "actions" for `quiz`
+ * A set of functions called "actions" for `quiztest`
  */
 
 module.exports = {
 
   /**
-   * Get quiz entries.
+   * Get quiztest entries.
    *
    * @return {Object|Array}
    */
@@ -23,58 +23,46 @@ module.exports = {
       this.body = err;
     }
   },
-  
-  findBySubject: function * (){
-    this.model = model;
-    
-    Quiz.find({
-        subject: this.params.param
-    })
-    .exec(function (err, records) {
-        if (err) {
-           this.body = err;
-        }
-        console.log(records);
-        this.body = records;
-    });
-  },
+
+  /**
+   * Get a specific quiztest.
+   *
+   * @return {Object|Array}
+   */
 
   findOne: function * () {
     this.model = model;
     try {
       let entry = yield strapi.hooks.blueprints.findOne(this);
-      console.log(entry);
       this.body = entry;
     } catch (err) {
       this.body = err;
     }
   },
 
+  /**
+   * Create a quiztest entry.
+   *
+   * @return {Object}
+   */
+
   create: function * () {
     this.model = model;
+    console.log(this.request.body);
     console.log(this);
-    // Quiz.create({
-    //     question: 'This is test question for nested doscument?',
-    //     subject: 'Maths',
-    //     options: [
-    //         {"text" : 'Option A',"isCorrect": true},
-    //         {"text" : 'Option B',"isCorrect": false}
-    //     ]
-    // })
-    // .exec(function (err, user) {
-    //     if (err) {
-    //     console.log(err);
-    //     }
-    //     console.log(user);
-    // });
-    // try {
-    //   let entry = yield strapi.hooks.blueprints.create(this);
-    //   this.body = entry;
-    // } catch (err) {
-    //   this.body = err;
-    // }
+    try {
+      let entry = yield strapi.hooks.blueprints.create(this);
+      this.body = entry;
+    } catch (err) {
+      this.body = err;
+    }
   },
 
+  /**
+   * Update a quiztest entry.
+   *
+   * @return {Object}
+   */
 
   update: function * () {
     this.model = model;
@@ -87,7 +75,7 @@ module.exports = {
   },
 
   /**
-   * Destroy a quiz entry.
+   * Destroy a quiztest entry.
    *
    * @return {Object}
    */
@@ -103,13 +91,12 @@ module.exports = {
   },
 
   /**
-   * Add an entry to a specific quiz.
+   * Add an entry to a specific quiztest.
    *
    * @return {Object}
    */
 
   add: function * () {
-    console.log('I am in add method');
     this.model = model;
     try {
       let entry = yield strapi.hooks.blueprints.add(this);
@@ -120,7 +107,7 @@ module.exports = {
   },
 
   /**
-   * Remove a specific entry from a specific quiz.
+   * Remove a specific entry from a specific quiztest.
    *
    * @return {Object}
    */

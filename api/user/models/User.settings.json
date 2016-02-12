@@ -49,6 +49,10 @@
     "quizzes": {
       "collection": "quiz",
       "via": "contributors"
+    },
+    "quiztests": {
+      "collection": "quiztest",
+      "via": "contributors"
     }
   },
   "autoCreatedAt": true,

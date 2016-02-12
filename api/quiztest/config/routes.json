@@ -1,58 +1,52 @@
 {
   "routes": {
-    "GET /quiz": {
-      "controller": "Quiz",
+    "GET /quiztest": {
+      "controller": "Quiztest",
       "action": "find",
       "policies": [
         "isAuthorized"
       ]
     },
-    "GET /quiz/:id": {
-      "controller": "Quiz",
+    "GET /quiztest/:id": {
+      "controller": "Quiztest",
       "action": "findOne",
       "policies": [
         "isAuthorized"
       ]
     },
-    "GET /quiz/subject/:param": {
-      "controller": "Quiz",
-      "action": "findBySubject",
-      "policies": [
-        "isAuthorized"
-      ]
-    },
-    "POST /quiz": {
-      "controller": "Quiz",
+    "POST /quiztest": {
+      "controller": "Quiztest",
       "action": "create",
       "policies": [
+        "isAuthorized",
         "addDataCreate"
       ]
     },
-    "PUT /quiz/:id": {
-      "controller": "Quiz",
+    "PUT /quiztest/:id": {
+      "controller": "Quiztest",
       "action": "update",
       "policies": [
         "isAuthorized",
         "addDataUpdate"
       ]
     },
-    "DELETE /quiz/:id": {
-      "controller": "Quiz",
+    "DELETE /quiztest/:id": {
+      "controller": "Quiztest",
       "action": "destroy",
       "policies": [
         "isAuthorized"
       ]
     },
-    "POST /quiz/:parentId/:relation": {
-      "controller": "Quiz",
+    "POST /quiztest/:parentId/:relation": {
+      "controller": "Quiztest",
       "action": "add",
       "policies": [
         "isAuthorized",
         "addDataCreate"
       ]
     },
-    "DELETE /quiz/:parentId/:relation/:id": {
-      "controller": "Quiz",
+    "DELETE /quiztest/:parentId/:relation/:id": {
+      "controller": "Quiztest",
       "action": "remove",
       "policies": [
         "isAuthorized",
