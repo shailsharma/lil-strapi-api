@@ -1,11 +1,6 @@
 {
   "static": true,
-  "views": {
-    "map": {
-      "ejs": "ejs"
-    },
-    "default": "ejs"
-  },
+  "views": false,
   "websockets": true,
   "favicon": {
     "path": "favicon.ico",

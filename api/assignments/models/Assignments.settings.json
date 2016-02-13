@@ -1,0 +1,37 @@
+{
+  "identity": "assignments",
+  "connection": "",
+  "displayedAttribute": "",
+  "schema": true,
+  "attributes": {
+      
+    "subject": {
+      "type": "string"   
+    },
+    
+    "assignedTo": {
+      "type": "array"   
+    },
+    
+    "questions": {
+      "type": "array"   
+    },
+    
+    "passingCriteria": {
+      "type": "array"   
+    },
+
+    "createdBy": {
+      "model": "user"
+    },
+    "updatedBy": {
+      "model": "user"
+    },
+    "contributors": {
+      "collection": "user",
+      "via": "assignments"
+    }
+  },
+  "autoCreatedAt": true,
+  "autoUpdatedAt": true
+}

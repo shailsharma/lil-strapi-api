@@ -585,6 +585,184 @@
   'use strict';
 
   // Init module.
+  angular.module('frontend.core.auth.register', []);
+})();
+
+(function () {
+  'use strict';
+
+  // Module config.
+  angular.module('frontend.core.auth.register')
+    .config([
+      '$stateProvider',
+      function config($stateProvider) {
+        $stateProvider
+          .state('auth.register', {
+            url: '/register',
+            data: {
+              access: 0
+            },
+            views: {
+              'content@': {
+                templateUrl: '/frontend/core/auth/register/register.html',
+                controller: 'RegisterController as RegisterCtrl'
+              }
+            }
+          })
+          .state('auth.register.confirmation', {
+            url: '/register/confirmation',
+            data: {
+              access: 0
+            },
+            views: {
+              'content@': {
+                templateUrl: '/frontend/core/auth/register/confirm.html'
+              }
+            }
+          });
+      }
+    ]);
+})();
+
+(function () {
+  'use strict';
+
+  angular.module('frontend.core.auth.register')
+    .controller('RegisterController', RegisterController);
+
+  RegisterController.$inject = ['$state', 'authService', 'configService'];
+
+  function RegisterController($state, authService, configService) {
+    // Already authenticated so redirect back to the dashboard page.
+    if (authService.isAuthenticated()) {
+      $state.go('strapi.dashboard');
+    }
+
+    // Disable registration if there more than 0 user existing.
+    if (configService.getConfig() && !configService.getConfig().isNewApp) {
+      $state.go('auth.login');
+    }
+
+    var vm = this;
+
+    // Init the loading variable
+    vm.loading = false;
+
+    // Scope user and set password to empty string
+    vm.user = {
+      username: '',
+      email: '',
+      password: '',
+      passwordConfirmation: ''
+    };
+
+    /**
+     * Call authService to make register request
+     *
+     * @scope
+     */
+    vm.action = function () {
+      if (vm.registrationForm.$valid) {
+        vm.loading = true;
+
+        authService
+          .register(vm.user)
+          .then(function () {
+            // Go to the dashboard page.
+            $state.go('strapi.dashboard');
+            vm.loading = false;
+
+            // Reload the app config.
+            configService.getApp();
+          })
+          .catch(function () {
+            vm.loading = false;
+          });
+      }
+    };
+
+    /**
+     * Helper for submit button.
+     *
+     * @returns {boolean}
+     */
+    vm.matchPassword = function () {
+      return vm.user.password === vm.user.passwordConfirmation;
+    };
+
+    // Form fields
+    vm.fields = [{
+      type: 'input',
+      key: 'username',
+      templateOptions: {
+        placeholder: 'Username',
+        label: '',
+        minlength: 3,
+        focus: true,
+        required: true,
+        addonLeft: {
+          class: 'fa fa-user'
+        }
+      }
+    }, {
+      type: 'input',
+      key: 'email',
+      templateOptions: {
+        type: 'email',
+        placeholder: 'E-mail',
+        label: '',
+        minlength: 6,
+        required: true,
+        addonLeft: {
+          class: 'fa fa-envelope'
+        }
+      }
+    }, {
+      type: 'input',
+      key: 'password',
+      templateOptions: {
+        type: 'password',
+        label: '',
+        placeholder: 'Password',
+        minlength: 6,
+        required: true,
+        addonLeft: {
+          class: 'fa fa-lock'
+        }
+      }
+    }, {
+      type: 'input',
+      key: 'passwordConfirmation',
+      extras: {
+        validateOnModelChange: true
+      },
+      templateOptions: {
+        type: 'password',
+        label: '',
+        placeholder: 'Confirm Password',
+        minlength: 6,
+        required: true,
+        addonLeft: {
+          class: 'fa fa-lock'
+        }
+      },
+      validators: {
+        confirmation: {
+          expression: function (viewValue, modelValue) {
+            var value = modelValue || viewValue;
+            return !vm.user.password || vm.user.password === value;
+          },
+          message: '"Password  does not match with the password field"'
+        }
+      }
+    }];
+  }
+})();
+
+(function () {
+  'use strict';
+
+  // Init module.
   angular.module('frontend.core.auth.services', []);
 })();
 
@@ -770,184 +948,6 @@
   'use strict';
 
   // Init module.
-  angular.module('frontend.core.auth.register', []);
-})();
-
-(function () {
-  'use strict';
-
-  // Module config.
-  angular.module('frontend.core.auth.register')
-    .config([
-      '$stateProvider',
-      function config($stateProvider) {
-        $stateProvider
-          .state('auth.register', {
-            url: '/register',
-            data: {
-              access: 0
-            },
-            views: {
-              'content@': {
-                templateUrl: '/frontend/core/auth/register/register.html',
-                controller: 'RegisterController as RegisterCtrl'
-              }
-            }
-          })
-          .state('auth.register.confirmation', {
-            url: '/register/confirmation',
-            data: {
-              access: 0
-            },
-            views: {
-              'content@': {
-                templateUrl: '/frontend/core/auth/register/confirm.html'
-              }
-            }
-          });
-      }
-    ]);
-})();
-
-(function () {
-  'use strict';
-
-  angular.module('frontend.core.auth.register')
-    .controller('RegisterController', RegisterController);
-
-  RegisterController.$inject = ['$state', 'authService', 'configService'];
-
-  function RegisterController($state, authService, configService) {
-    // Already authenticated so redirect back to the dashboard page.
-    if (authService.isAuthenticated()) {
-      $state.go('strapi.dashboard');
-    }
-
-    // Disable registration if there more than 0 user existing.
-    if (configService.getConfig() && !configService.getConfig().isNewApp) {
-      $state.go('auth.login');
-    }
-
-    var vm = this;
-
-    // Init the loading variable
-    vm.loading = false;
-
-    // Scope user and set password to empty string
-    vm.user = {
-      username: '',
-      email: '',
-      password: '',
-      passwordConfirmation: ''
-    };
-
-    /**
-     * Call authService to make register request
-     *
-     * @scope
-     */
-    vm.action = function () {
-      if (vm.registrationForm.$valid) {
-        vm.loading = true;
-
-        authService
-          .register(vm.user)
-          .then(function () {
-            // Go to the dashboard page.
-            $state.go('strapi.dashboard');
-            vm.loading = false;
-
-            // Reload the app config.
-            configService.getApp();
-          })
-          .catch(function () {
-            vm.loading = false;
-          });
-      }
-    };
-
-    /**
-     * Helper for submit button.
-     *
-     * @returns {boolean}
-     */
-    vm.matchPassword = function () {
-      return vm.user.password === vm.user.passwordConfirmation;
-    };
-
-    // Form fields
-    vm.fields = [{
-      type: 'input',
-      key: 'username',
-      templateOptions: {
-        placeholder: 'Username',
-        label: '',
-        minlength: 3,
-        focus: true,
-        required: true,
-        addonLeft: {
-          class: 'fa fa-user'
-        }
-      }
-    }, {
-      type: 'input',
-      key: 'email',
-      templateOptions: {
-        type: 'email',
-        placeholder: 'E-mail',
-        label: '',
-        minlength: 6,
-        required: true,
-        addonLeft: {
-          class: 'fa fa-envelope'
-        }
-      }
-    }, {
-      type: 'input',
-      key: 'password',
-      templateOptions: {
-        type: 'password',
-        label: '',
-        placeholder: 'Password',
-        minlength: 6,
-        required: true,
-        addonLeft: {
-          class: 'fa fa-lock'
-        }
-      }
-    }, {
-      type: 'input',
-      key: 'passwordConfirmation',
-      extras: {
-        validateOnModelChange: true
-      },
-      templateOptions: {
-        type: 'password',
-        label: '',
-        placeholder: 'Confirm Password',
-        minlength: 6,
-        required: true,
-        addonLeft: {
-          class: 'fa fa-lock'
-        }
-      },
-      validators: {
-        confirmation: {
-          expression: function (viewValue, modelValue) {
-            var value = modelValue || viewValue;
-            return !vm.user.password || vm.user.password === value;
-          },
-          message: '"Password  does not match with the password field"'
-        }
-      }
-    }];
-  }
-})();
-
-(function () {
-  'use strict';
-
-  // Init module.
   angular.module('frontend.core.auth.login', []);
 })();
 
@@ -1076,96 +1076,6 @@
 (function () {
   'use strict';
 
-  angular.module('frontend.core.auth.forgotPassword', []);
-
-})();
-
-(function () {
-  'use strict';
-
-  angular.module('frontend.core.auth.forgotPassword')
-    .config([
-      '$stateProvider',
-      function config($stateProvider) {
-        $stateProvider
-          .state('auth.forgotPassword', {
-            url: '/forgot-password',
-            data: {
-              access: 0
-            },
-            views: {
-              'content@': {
-                templateUrl: '/frontend/core/auth/forgot-password/forgot-password.html',
-                controller: 'ForgotPasswordController as ForgotPasswordCtrl'
-              }
-            }
-          });
-      }
-    ]);
-})();
-
-(function () {
-  'use strict';
-
-  angular.module('frontend.core.auth.forgotPassword')
-    .controller('ForgotPasswordController', ForgotPasswordController);
-
-  ForgotPasswordController.$inject = ['$state', 'authService'];
-
-  function ForgotPasswordController($state, authService) {
-    // Already authenticated so redirect back to dashboard.
-    if (authService.isAuthenticated()) {
-      return $state.go('strapi.dashboard');
-    }
-
-    var vm = this;
-    vm.action = action;
-    vm.fields = getFields();
-
-    /**
-     * Call authService to make forgot password request
-     */
-    function action() {
-      if (vm.forgotPasswordForm.$valid) {
-        authService
-          .forgotPassword(vm.form.email)
-          .then(function (err) {
-            if (err) {
-              return;
-            }
-
-            $state.go('auth.login');
-          });
-      }
-    }
-
-    /**
-     * Return the list of fields for the login form.
-     *
-     * @returns [] fields
-     */
-    function getFields() {
-      return [{
-        type: 'input',
-        key: 'email',
-        templateOptions: {
-          type: 'email',
-          focus: true,
-          placeholder: 'Your e-mail',
-          label: '',
-          minlength: 6,
-          addonLeft: {
-            class: 'fa fa-envelope'
-          }
-        }
-      }];
-    }
-  }
-})();
-
-(function () {
-  'use strict';
-
   // Init module.
   angular.module('frontend.core.auth.changePassword', []);
 })();
@@ -1277,6 +1187,96 @@
 (function () {
   'use strict';
 
+  angular.module('frontend.core.auth.forgotPassword', []);
+
+})();
+
+(function () {
+  'use strict';
+
+  angular.module('frontend.core.auth.forgotPassword')
+    .config([
+      '$stateProvider',
+      function config($stateProvider) {
+        $stateProvider
+          .state('auth.forgotPassword', {
+            url: '/forgot-password',
+            data: {
+              access: 0
+            },
+            views: {
+              'content@': {
+                templateUrl: '/frontend/core/auth/forgot-password/forgot-password.html',
+                controller: 'ForgotPasswordController as ForgotPasswordCtrl'
+              }
+            }
+          });
+      }
+    ]);
+})();
+
+(function () {
+  'use strict';
+
+  angular.module('frontend.core.auth.forgotPassword')
+    .controller('ForgotPasswordController', ForgotPasswordController);
+
+  ForgotPasswordController.$inject = ['$state', 'authService'];
+
+  function ForgotPasswordController($state, authService) {
+    // Already authenticated so redirect back to dashboard.
+    if (authService.isAuthenticated()) {
+      return $state.go('strapi.dashboard');
+    }
+
+    var vm = this;
+    vm.action = action;
+    vm.fields = getFields();
+
+    /**
+     * Call authService to make forgot password request
+     */
+    function action() {
+      if (vm.forgotPasswordForm.$valid) {
+        authService
+          .forgotPassword(vm.form.email)
+          .then(function (err) {
+            if (err) {
+              return;
+            }
+
+            $state.go('auth.login');
+          });
+      }
+    }
+
+    /**
+     * Return the list of fields for the login form.
+     *
+     * @returns [] fields
+     */
+    function getFields() {
+      return [{
+        type: 'input',
+        key: 'email',
+        templateOptions: {
+          type: 'email',
+          focus: true,
+          placeholder: 'Your e-mail',
+          label: '',
+          minlength: 6,
+          addonLeft: {
+            class: 'fa fa-envelope'
+          }
+        }
+      }];
+    }
+  }
+})();
+
+(function () {
+  'use strict';
+
   // Init module.
   angular.module('frontend.strapi.users', [
     'frontend.strapi.users.permissions'
@@ -1323,6 +1323,37 @@
               _routesAndRoles: ['usersPermissionsService', function (usersPermissionsService) {
                 return usersPermissionsService.getRoutesAndRoles();
               }]
+            }
+          });
+      }
+    ]);
+})();
+
+(function () {
+  'use strict';
+
+  // Init module.
+  angular.module('frontend.strapi.dashboard', []);
+})();
+
+(function () {
+  'use strict';
+
+  // Module configuration.
+  angular.module('frontend.strapi.dashboard')
+    .config([
+      '$stateProvider',
+      function ($stateProvider) {
+        $stateProvider
+          .state('strapi.dashboard', {
+            url: '/',
+            data: {
+              access: 1
+            },
+            views: {
+              'content@': {
+                templateUrl: '/frontend/strapi/dashboard/dashboard.html'
+              }
             }
           });
       }
@@ -2575,37 +2606,6 @@
       }
     }
   }
-})();
-
-(function () {
-  'use strict';
-
-  // Init module.
-  angular.module('frontend.strapi.dashboard', []);
-})();
-
-(function () {
-  'use strict';
-
-  // Module configuration.
-  angular.module('frontend.strapi.dashboard')
-    .config([
-      '$stateProvider',
-      function ($stateProvider) {
-        $stateProvider
-          .state('strapi.dashboard', {
-            url: '/',
-            data: {
-              access: 1
-            },
-            views: {
-              'content@': {
-                templateUrl: '/frontend/strapi/dashboard/dashboard.html'
-              }
-            }
-          });
-      }
-    ]);
 })();
 
 (function () {
@@ -4444,6 +4444,50 @@
   'use strict';
 
   // Init module.
+  angular.module('frontend', [
+    'frontend-templates',
+    'frontend.core',
+    'frontend.strapi'
+  ]);
+})();
+
+(function () {
+  'use strict';
+
+  /**
+   * Frontend application backend constant definitions. This is something that you must define in your application.
+   *
+   * Note that 'Config.backendUrl' is configured in /frontend/config/config.json file and you must change it to match
+   * your backend API url.
+   */
+  angular.module('frontend')
+    .constant('Config', {
+      backendUrl: window.backendUrl || window.location.origin,
+      frontendUrl: window.frontendUrl
+    });
+})();
+
+/**
+ * Frontend application access level constant definitions. These are used to to restrict access to certain routes in
+ * application.
+ *
+ * Note that actual access check is done by currently signed in user.
+ */
+(function () {
+  'use strict';
+
+  angular.module('frontend')
+    .constant('AccessLevels', {
+      anon: 0,
+      user: 1,
+      admin: 2
+    });
+})();
+
+(function () {
+  'use strict';
+
+  // Init module.
   angular.module('frontend.core.auth', [
     'frontend.core.auth.login',
     'frontend.core.auth.register',
@@ -4475,50 +4519,6 @@
           });
       }
     ]);
-})();
-
-(function () {
-  'use strict';
-
-  // Init module.
-  angular.module('frontend', [
-    'frontend-templates',
-    'frontend.core',
-    'frontend.strapi'
-  ]);
-})();
-
-/**
- * Frontend application access level constant definitions. These are used to to restrict access to certain routes in
- * application.
- *
- * Note that actual access check is done by currently signed in user.
- */
-(function () {
-  'use strict';
-
-  angular.module('frontend')
-    .constant('AccessLevels', {
-      anon: 0,
-      user: 1,
-      admin: 2
-    });
-})();
-
-(function () {
-  'use strict';
-
-  /**
-   * Frontend application backend constant definitions. This is something that you must define in your application.
-   *
-   * Note that 'Config.backendUrl' is configured in /frontend/config/config.json file and you must change it to match
-   * your backend API url.
-   */
-  angular.module('frontend')
-    .constant('Config', {
-      backendUrl: window.backendUrl || window.location.origin,
-      frontendUrl: window.frontendUrl
-    });
 })();
 
 (function () {

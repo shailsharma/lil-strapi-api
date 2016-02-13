@@ -53,6 +53,10 @@
     "quiztests": {
       "collection": "quiztest",
       "via": "contributors"
+    },
+    "assignments": {
+      "collection": "assignments",
+      "via": "contributors"
     }
   },
   "autoCreatedAt": true,

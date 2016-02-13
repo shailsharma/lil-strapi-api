@@ -1,21 +1,20 @@
 'use strict';
 
-const model = 'quiz';
+const model = 'assignments';
 
 /**
- * A set of functions called "actions" for `quiz`
+ * A set of functions called "actions" for `assignments`
  */
 
 module.exports = {
 
   /**
-   * Get quiz entries.
+   * Get assignments entries.
    *
    * @return {Object|Array}
    */
 
   find: function * () {
-    console.log('I am in find method');
     this.model = model;
     try {
       let entries = yield strapi.hooks.blueprints.find(this);
@@ -24,16 +23,14 @@ module.exports = {
       this.body = err;
     }
   },
-  
-  findBySubject: function * () {
-    this.model = model;
-    let sub = this.params.subject;
-    let entries = yield Quiz.find({subject: sub});
-    this.body = entries;
-  },
+
+  /**
+   * Get a specific assignments.
+   *
+   * @return {Object|Array}
+   */
 
   findOne: function * () {
-    console.log('I am in find one method');
     this.model = model;
     try {
       let entry = yield strapi.hooks.blueprints.findOne(this);
@@ -42,6 +39,12 @@ module.exports = {
       this.body = err;
     }
   },
+
+  /**
+   * Create a assignments entry.
+   *
+   * @return {Object}
+   */
 
   create: function * () {
     this.model = model;
@@ -52,6 +55,12 @@ module.exports = {
       this.body = err;
     }
   },
+
+  /**
+   * Update a assignments entry.
+   *
+   * @return {Object}
+   */
 
   update: function * () {
     this.model = model;
@@ -64,7 +73,7 @@ module.exports = {
   },
 
   /**
-   * Destroy a quiz entry.
+   * Destroy a assignments entry.
    *
    * @return {Object}
    */
@@ -80,7 +89,7 @@ module.exports = {
   },
 
   /**
-   * Add an entry to a specific quiz.
+   * Add an entry to a specific assignments.
    *
    * @return {Object}
    */
@@ -96,7 +105,7 @@ module.exports = {
   },
 
   /**
-   * Remove a specific entry from a specific quiz.
+   * Remove a specific entry from a specific assignments.
    *
    * @return {Object}
    */
