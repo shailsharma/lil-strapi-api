@@ -15,7 +15,6 @@ module.exports = {
    */
 
   find: function * () {
-    console.log('I am in find method');
     this.model = model;
     try {
       let entries = yield strapi.hooks.blueprints.find(this);
@@ -33,7 +32,6 @@ module.exports = {
   },
 
   findOne: function * () {
-    console.log('I am in find one method');
     this.model = model;
     try {
       let entry = yield strapi.hooks.blueprints.findOne(this);

@@ -19,7 +19,7 @@
         "contributorsAuthorized": true,
         "id": 1,
         "createdAt": "2016-02-09T05:06:59.427Z",
-        "updatedAt": "2016-02-13T06:15:57.179Z"
+        "updatedAt": "2016-02-15T06:02:25.433Z"
       },
       {
         "name": "GET /admin/routes",
@@ -31,7 +31,7 @@
         "contributorsAuthorized": true,
         "id": 2,
         "createdAt": "2016-02-09T05:06:59.436Z",
-        "updatedAt": "2016-02-13T06:15:57.257Z"
+        "updatedAt": "2016-02-15T06:02:25.451Z"
       },
       {
         "name": "PUT /admin/routes",
@@ -45,7 +45,7 @@
         "contributorsAuthorized": true,
         "id": 3,
         "createdAt": "2016-02-09T05:06:59.444Z",
-        "updatedAt": "2016-02-13T06:15:57.282Z"
+        "updatedAt": "2016-02-15T06:02:25.464Z"
       },
       {
         "name": "GET /admin/explorer/:model",
@@ -59,7 +59,7 @@
         "contributorsAuthorized": true,
         "id": 4,
         "createdAt": "2016-02-09T05:06:59.451Z",
-        "updatedAt": "2016-02-13T06:15:57.313Z"
+        "updatedAt": "2016-02-15T06:02:25.478Z"
       },
       {
         "name": "GET /admin/explorer/:model/count",
@@ -73,7 +73,7 @@
         "contributorsAuthorized": true,
         "id": 5,
         "createdAt": "2016-02-09T05:06:59.460Z",
-        "updatedAt": "2016-02-13T06:15:57.367Z"
+        "updatedAt": "2016-02-15T06:02:25.502Z"
       },
       {
         "name": "GET /admin/explorer/:model/:id",
@@ -87,7 +87,7 @@
         "contributorsAuthorized": true,
         "id": 6,
         "createdAt": "2016-02-09T05:06:59.468Z",
-        "updatedAt": "2016-02-13T06:15:57.391Z"
+        "updatedAt": "2016-02-15T06:02:25.516Z"
       },
       {
         "name": "POST /admin/explorer/:model",
@@ -102,7 +102,7 @@
         "contributorsAuthorized": true,
         "id": 7,
         "createdAt": "2016-02-09T05:06:59.476Z",
-        "updatedAt": "2016-02-13T06:15:57.409Z"
+        "updatedAt": "2016-02-15T06:02:25.532Z"
       },
       {
         "name": "PUT /admin/explorer/:model/:id",
@@ -117,7 +117,7 @@
         "contributorsAuthorized": true,
         "id": 8,
         "createdAt": "2016-02-09T05:06:59.499Z",
-        "updatedAt": "2016-02-13T06:15:57.428Z"
+        "updatedAt": "2016-02-15T06:02:25.545Z"
       },
       {
         "name": "DELETE /admin/explorer/:model/:id",
@@ -131,7 +131,7 @@
         "contributorsAuthorized": true,
         "id": 9,
         "createdAt": "2016-02-09T05:06:59.508Z",
-        "updatedAt": "2016-02-13T06:15:57.450Z"
+        "updatedAt": "2016-02-15T06:02:25.558Z"
       },
       {
         "name": "POST /email",
@@ -145,7 +145,7 @@
         "contributorsAuthorized": true,
         "id": 10,
         "createdAt": "2016-02-09T05:06:59.517Z",
-        "updatedAt": "2016-02-13T06:15:57.598Z"
+        "updatedAt": "2016-02-15T06:02:25.673Z"
       },
       {
         "name": "GET /quiz/:id",
@@ -159,7 +159,7 @@
         "contributorsAuthorized": true,
         "id": 12,
         "createdAt": "2016-02-09T05:06:59.535Z",
-        "updatedAt": "2016-02-13T06:15:57.624Z"
+        "updatedAt": "2016-02-15T06:02:25.700Z"
       },
       {
         "name": "POST /quiz",
@@ -173,7 +173,7 @@
         "contributorsAuthorized": true,
         "id": 13,
         "createdAt": "2016-02-09T05:06:59.543Z",
-        "updatedAt": "2016-02-13T06:15:57.660Z"
+        "updatedAt": "2016-02-15T06:02:25.730Z"
       },
       {
         "name": "PUT /quiz/:id",
@@ -188,7 +188,7 @@
         "contributorsAuthorized": true,
         "id": 14,
         "createdAt": "2016-02-09T05:06:59.553Z",
-        "updatedAt": "2016-02-13T06:15:57.681Z"
+        "updatedAt": "2016-02-15T06:02:25.746Z"
       },
       {
         "name": "DELETE /quiz/:id",
@@ -202,7 +202,7 @@
         "contributorsAuthorized": true,
         "id": 15,
         "createdAt": "2016-02-09T05:06:59.561Z",
-        "updatedAt": "2016-02-13T06:15:57.696Z"
+        "updatedAt": "2016-02-15T06:02:25.765Z"
       },
       {
         "name": "POST /quiz/:parentId/:relation",
@@ -217,7 +217,7 @@
         "contributorsAuthorized": true,
         "id": 16,
         "createdAt": "2016-02-09T05:06:59.570Z",
-        "updatedAt": "2016-02-13T06:15:57.710Z"
+        "updatedAt": "2016-02-15T06:02:25.780Z"
       },
       {
         "name": "DELETE /quiz/:parentId/:relation/:id",
@@ -232,7 +232,7 @@
         "contributorsAuthorized": true,
         "id": 17,
         "createdAt": "2016-02-09T05:06:59.579Z",
-        "updatedAt": "2016-02-13T06:15:57.726Z"
+        "updatedAt": "2016-02-15T06:02:25.792Z"
       },
       {
         "name": "POST /upload",
@@ -247,7 +247,7 @@
         "contributorsAuthorized": true,
         "id": 18,
         "createdAt": "2016-02-09T05:06:59.588Z",
-        "updatedAt": "2016-02-13T06:15:57.853Z"
+        "updatedAt": "2016-02-15T06:02:25.899Z"
       },
       {
         "name": "GET /user",
@@ -261,7 +261,7 @@
         "contributorsAuthorized": false,
         "id": 19,
         "createdAt": "2016-02-09T05:06:59.597Z",
-        "updatedAt": "2016-02-13T06:15:57.869Z"
+        "updatedAt": "2016-02-15T06:02:25.913Z"
       },
       {
         "name": "GET /user/:id",
@@ -275,7 +275,7 @@
         "contributorsAuthorized": true,
         "id": 20,
         "createdAt": "2016-02-09T05:06:59.609Z",
-        "updatedAt": "2016-02-13T06:15:57.883Z"
+        "updatedAt": "2016-02-15T06:02:25.925Z"
       },
       {
         "name": "POST /user",
@@ -291,7 +291,7 @@
         "contributorsAuthorized": false,
         "id": 21,
         "createdAt": "2016-02-09T05:06:59.619Z",
-        "updatedAt": "2016-02-13T06:15:57.898Z"
+        "updatedAt": "2016-02-15T06:02:25.939Z"
       },
       {
         "name": "PUT /user/:id",
@@ -307,7 +307,7 @@
         "contributorsAuthorized": true,
         "id": 22,
         "createdAt": "2016-02-09T05:06:59.630Z",
-        "updatedAt": "2016-02-13T06:15:57.912Z"
+        "updatedAt": "2016-02-15T06:02:25.953Z"
       },
       {
         "name": "DELETE /user/:id",
@@ -321,7 +321,7 @@
         "contributorsAuthorized": true,
         "id": 23,
         "createdAt": "2016-02-09T05:06:59.639Z",
-        "updatedAt": "2016-02-13T06:15:57.925Z"
+        "updatedAt": "2016-02-15T06:02:25.965Z"
       },
       {
         "name": "POST /user/:parentId/:relation",
@@ -337,7 +337,7 @@
         "contributorsAuthorized": false,
         "id": 24,
         "createdAt": "2016-02-09T05:06:59.649Z",
-        "updatedAt": "2016-02-13T06:15:57.940Z"
+        "updatedAt": "2016-02-15T06:02:25.978Z"
       },
       {
         "name": "DELETE /user/:parentId/:relation/:id",
@@ -353,7 +353,7 @@
         "contributorsAuthorized": false,
         "id": 25,
         "createdAt": "2016-02-09T05:06:59.659Z",
-        "updatedAt": "2016-02-13T06:15:57.960Z"
+        "updatedAt": "2016-02-15T06:02:25.990Z"
       },
       {
         "name": "POST /auth/logout",
@@ -365,7 +365,7 @@
         "contributorsAuthorized": false,
         "id": 26,
         "createdAt": "2016-02-09T05:06:59.669Z",
-        "updatedAt": "2016-02-13T06:15:57.974Z"
+        "updatedAt": "2016-02-15T06:02:26.003Z"
       },
       {
         "name": "POST /auth/forgot-password",
@@ -377,7 +377,7 @@
         "contributorsAuthorized": false,
         "id": 27,
         "createdAt": "2016-02-09T05:06:59.679Z",
-        "updatedAt": "2016-02-13T06:15:57.989Z"
+        "updatedAt": "2016-02-15T06:02:26.016Z"
       },
       {
         "name": "POST /auth/change-password",
@@ -389,7 +389,7 @@
         "contributorsAuthorized": false,
         "id": 28,
         "createdAt": "2016-02-09T05:06:59.689Z",
-        "updatedAt": "2016-02-13T06:15:58.003Z"
+        "updatedAt": "2016-02-15T06:02:26.031Z"
       },
       {
         "name": "POST /auth/local",
@@ -401,7 +401,7 @@
         "contributorsAuthorized": false,
         "id": 29,
         "createdAt": "2016-02-09T05:06:59.699Z",
-        "updatedAt": "2016-02-13T06:15:58.017Z"
+        "updatedAt": "2016-02-15T06:02:26.043Z"
       },
       {
         "name": "POST /auth/local/register",
@@ -413,7 +413,7 @@
         "contributorsAuthorized": false,
         "id": 30,
         "createdAt": "2016-02-09T05:06:59.709Z",
-        "updatedAt": "2016-02-13T06:15:58.031Z"
+        "updatedAt": "2016-02-15T06:02:26.056Z"
       },
       {
         "name": "GET /auth/:provider/callback",
@@ -425,7 +425,7 @@
         "contributorsAuthorized": false,
         "id": 31,
         "createdAt": "2016-02-09T05:06:59.718Z",
-        "updatedAt": "2016-02-13T06:15:58.054Z"
+        "updatedAt": "2016-02-15T06:02:26.068Z"
       },
       {
         "name": "GET /quiztest",
@@ -439,7 +439,7 @@
         "contributorsAuthorized": true,
         "id": 38,
         "createdAt": "2016-02-11T09:17:54.551Z",
-        "updatedAt": "2016-02-13T06:15:57.739Z"
+        "updatedAt": "2016-02-15T06:02:25.808Z"
       },
       {
         "name": "GET /quiztest/:id",
@@ -453,7 +453,7 @@
         "contributorsAuthorized": true,
         "id": 39,
         "createdAt": "2016-02-11T09:17:54.561Z",
-        "updatedAt": "2016-02-13T06:15:57.759Z"
+        "updatedAt": "2016-02-15T06:02:25.824Z"
       },
       {
         "name": "POST /quiztest",
@@ -468,7 +468,7 @@
         "contributorsAuthorized": true,
         "id": 40,
         "createdAt": "2016-02-11T09:17:54.572Z",
-        "updatedAt": "2016-02-13T06:15:57.773Z"
+        "updatedAt": "2016-02-15T06:02:25.837Z"
       },
       {
         "name": "PUT /quiztest/:id",
@@ -483,7 +483,7 @@
         "contributorsAuthorized": true,
         "id": 41,
         "createdAt": "2016-02-11T09:17:54.582Z",
-        "updatedAt": "2016-02-13T06:15:57.789Z"
+        "updatedAt": "2016-02-15T06:02:25.849Z"
       },
       {
         "name": "DELETE /quiztest/:id",
@@ -497,7 +497,7 @@
         "contributorsAuthorized": true,
         "id": 42,
         "createdAt": "2016-02-11T09:17:54.595Z",
-        "updatedAt": "2016-02-13T06:15:57.804Z"
+        "updatedAt": "2016-02-15T06:02:25.861Z"
       },
       {
         "name": "POST /quiztest/:parentId/:relation",
@@ -512,7 +512,7 @@
         "contributorsAuthorized": true,
         "id": 43,
         "createdAt": "2016-02-11T09:17:54.614Z",
-        "updatedAt": "2016-02-13T06:15:57.819Z"
+        "updatedAt": "2016-02-15T06:02:25.875Z"
       },
       {
         "name": "DELETE /quiztest/:parentId/:relation/:id",
@@ -527,7 +527,7 @@
         "contributorsAuthorized": true,
         "id": 44,
         "createdAt": "2016-02-11T09:17:54.642Z",
-        "updatedAt": "2016-02-13T06:15:57.833Z"
+        "updatedAt": "2016-02-15T06:02:25.887Z"
       },
       {
         "name": "GET /quiz/subject/:subject",
@@ -541,7 +541,7 @@
         "contributorsAuthorized": true,
         "id": 45,
         "createdAt": "2016-02-12T13:51:48.128Z",
-        "updatedAt": "2016-02-13T06:15:57.640Z"
+        "updatedAt": "2016-02-15T06:02:25.713Z"
       },
       {
         "name": "GET /quiz",
@@ -555,7 +555,7 @@
         "contributorsAuthorized": true,
         "id": 46,
         "createdAt": "2016-02-12T13:56:52.575Z",
-        "updatedAt": "2016-02-13T06:15:57.611Z"
+        "updatedAt": "2016-02-15T06:02:25.687Z"
       },
       {
         "name": "GET /assignments",
@@ -569,7 +569,7 @@
         "contributorsAuthorized": true,
         "id": 47,
         "createdAt": "2016-02-13T06:09:49.120Z",
-        "updatedAt": "2016-02-13T06:15:57.479Z"
+        "updatedAt": "2016-02-15T06:02:25.577Z"
       },
       {
         "name": "GET /assignments/:id",
@@ -583,7 +583,7 @@
         "contributorsAuthorized": true,
         "id": 48,
         "createdAt": "2016-02-13T06:09:49.136Z",
-        "updatedAt": "2016-02-13T06:15:57.495Z"
+        "updatedAt": "2016-02-15T06:02:25.591Z"
       },
       {
         "name": "POST /assignments",
@@ -598,7 +598,7 @@
         "contributorsAuthorized": true,
         "id": 49,
         "createdAt": "2016-02-13T06:09:49.148Z",
-        "updatedAt": "2016-02-13T06:15:57.511Z"
+        "updatedAt": "2016-02-15T06:02:25.606Z"
       },
       {
         "name": "PUT /assignments/:id",
@@ -613,7 +613,7 @@
         "contributorsAuthorized": true,
         "id": 50,
         "createdAt": "2016-02-13T06:09:49.158Z",
-        "updatedAt": "2016-02-13T06:15:57.527Z"
+        "updatedAt": "2016-02-15T06:02:25.618Z"
       },
       {
         "name": "DELETE /assignments/:id",
@@ -627,7 +627,7 @@
         "contributorsAuthorized": true,
         "id": 51,
         "createdAt": "2016-02-13T06:09:49.172Z",
-        "updatedAt": "2016-02-13T06:15:57.547Z"
+        "updatedAt": "2016-02-15T06:02:25.631Z"
       },
       {
         "name": "POST /assignments/:parentId/:relation",
@@ -642,7 +642,7 @@
         "contributorsAuthorized": true,
         "id": 52,
         "createdAt": "2016-02-13T06:09:49.191Z",
-        "updatedAt": "2016-02-13T06:15:57.569Z"
+        "updatedAt": "2016-02-15T06:02:25.644Z"
       },
       {
         "name": "DELETE /assignments/:parentId/:relation/:id",
@@ -657,7 +657,7 @@
         "contributorsAuthorized": true,
         "id": 53,
         "createdAt": "2016-02-13T06:09:49.210Z",
-        "updatedAt": "2016-02-13T06:15:57.583Z"
+        "updatedAt": "2016-02-15T06:02:25.657Z"
       }
     ],
     "role_routes__route_roles": [
